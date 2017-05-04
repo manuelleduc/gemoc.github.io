@@ -1,30 +1,988 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
+    <title>The GEMOC Initiative</title>
+    <description>GEMOC develops techniques, frameworks, and environments to facilitate the creation, integration, and automated processing of heterogeneous modeling languages.
+</description>
+    <link>https://gemoc.github.io/</link>
+    <atom:link href="https://gemoc.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 04 May 2017 12:14:55 +0000</pubDate>
+    <lastBuildDate>Thu, 04 May 2017 12:14:55 +0000</lastBuildDate>
+    <generator>Jekyll v3.4.3</generator>
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
+        <title>GEMOC Studio V2.3.0</title>
+        <description>&lt;h1 id=&quot;gemoc-studio-230-20170227&quot;&gt;GEMOC Studio 2.3.0 (2017/02/27)&lt;/h1&gt;
+
+&lt;p&gt;This software is provided for all major OS: Windows 32 and 64 bit, Linux 32 and 64 bit and Mac OS X.&lt;/p&gt;
+
+&lt;p&gt;The GEMOC Studio contains components supporting the GEMOC methodology for building and composing executable DSMLs.&lt;/p&gt;
+
+&lt;p&gt;It includes the two workbenches:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The GEMOC Language Workbench, intended to be used by language designers: it allows building and composing new executable DSMLs.&lt;/li&gt;
+  &lt;li&gt;The GEMOC Modeling Workbench, intended to be used by domain designers: it allows creating and executing, debugging and animating models conformant to executable DSMLs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-new-and-noteworthy&quot;&gt;1. New and noteworthy&lt;/h2&gt;
+
+&lt;p&gt;The purpose of this section is to highlight some of the work done on the GEMOC Studio since previous releases.&lt;/p&gt;
+
+&lt;h3 id=&quot;11-upgrade-to-eclipse-neon-and-alignment-of-all-dependencies&quot;&gt;1.1 Upgrade to Eclipse Neon and alignment of all dependencies&lt;/h3&gt;
+
+&lt;p&gt;This version is based on Eclipse Neon. 
+This also includes internal component dependencies which are aligned to the components distributed with the Eclipse release train.
+For example : it now uses Xtext 2.10.x, Sirius 4.1.2,  OCL 5.0.0, …&lt;/p&gt;
+
+&lt;h3 id=&quot;12-official-support-of-language-inheritance-to-build-editors-and-animators&quot;&gt;1.2 Official support of language inheritance to build editors and animators.&lt;/h3&gt;
+
+&lt;p&gt;Thanks to Melange, it is now possible to build the animator as a language extension of a parent language.&lt;/p&gt;
+
+&lt;p&gt;In such scenario, the parent language supports the edition services. The child language inherits from it 
+in order to define the concepts and attributes required for the execution and animation.&lt;br /&gt;
+From the model designer point of view, she is editing model conformant to the parent language. When running the model,
+Melange will seamlessly convert the model into its executable variant in order to support the animation extension.&lt;/p&gt;
+
+&lt;p&gt;This is illustrated with the new version of the &lt;a href=&quot;https://github.com/gemoc/gemoc-studio/tree/master/official_samples/LegacyFSM&quot;&gt;Sequential FSM example&lt;/a&gt; which is bundled in the Studio.&lt;/p&gt;
+
+&lt;h3 id=&quot;13-improved-ui-for-bcool&quot;&gt;1.3 Improved UI for BCOoL&lt;/h3&gt;
+
+&lt;p&gt;Some new wizards have been added in order to create BCOoL projects and files.&lt;/p&gt;
+
+&lt;h3 id=&quot;14-improved-timeline&quot;&gt;1.4 Improved Timeline&lt;/h3&gt;
+
+&lt;p&gt;A diff viewer is now also available in order to compare execution traces.&lt;/p&gt;
+
+&lt;h3 id=&quot;15-improvement-of-the-trace-generator&quot;&gt;1.5 Improvement of the Trace generator&lt;/h3&gt;
+
+&lt;p&gt;Various bug fix have been done on this component.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-bug-fix-and-feature-request-implemented&quot;&gt;2. Bug fix and feature request implemented&lt;/h2&gt;
+
+&lt;p&gt;Many bugs and feature have been solved in this release. This includes (but is not limited to) the following:&lt;/p&gt;
+
+&lt;h3 id=&quot;21-list-of-bug-fixed-in-this-release&quot;&gt;2.1 List of bug fixed in this release&lt;/h3&gt;
+
+&lt;p&gt;(ie. bug fixed since V2.2.0)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/gemoc/gemoc-studio/issues/30&quot;&gt;Studio Bug #30&lt;/a&gt;; Creating a new GEMOC Language project cannot complete if there is no preexisting ecore file.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/gemoc/gemoc-studio/issues/31&quot;&gt;Studio Bug #31&lt;/a&gt;; String written reversed in Melange new project template.&lt;/li&gt;
+  &lt;li&gt;Fix Melange loading problem when using both language inheritance and xText editor.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;22-list-of-feature-request&quot;&gt;2.2 List of feature request&lt;/h3&gt;
+
+&lt;p&gt;(i.e. done since V2.2.0)&lt;/p&gt;
+</description>
+        <pubDate>Mon, 27 Feb 2017 00:00:00 +0000</pubDate>
+        <link>https://gemoc.github.io/studio_releases/eclipse_package/virtualbox/updatesite/2017/02/27/v2.3.0.html</link>
+        <guid isPermaLink="true">https://gemoc.github.io/studio_releases/eclipse_package/virtualbox/updatesite/2017/02/27/v2.3.0.html</guid>
+        
+        
+        <category>studio_releases</category>
+        
+        <category>eclipse_package</category>
+        
+        <category>virtualbox</category>
+        
+        <category>updatesite</category>
+        
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>GEMOC Studio V2.2.0</title>
+        <description>&lt;p&gt;This is a maintenance release.&lt;/p&gt;
+
+&lt;p&gt;This version is the last stable version based on Eclipse Mars.&lt;/p&gt;
+
+&lt;p&gt;This is the version used for Models16 conference.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 07 Oct 2016 00:00:00 +0000</pubDate>
+        <link>https://gemoc.github.io/studio_releases/eclipse_package/virtualbox/updatesite/2016/10/07/v2.2.0.html</link>
+        <guid isPermaLink="true">https://gemoc.github.io/studio_releases/eclipse_package/virtualbox/updatesite/2016/10/07/v2.2.0.html</guid>
+        
+        
+        <category>studio_releases</category>
+        
+        <category>eclipse_package</category>
+        
+        <category>virtualbox</category>
+        
+        <category>updatesite</category>
+        
+      </item>
+    
+      <item>
+        <title>GEMOC Studio V2.1.1</title>
+        <description>&lt;p&gt;This is a maintenance release.&lt;/p&gt;
+
+&lt;p&gt;This version is the last stable version based on Eclipse Luna. Newer versions will be 
+based on Eclipse Mars.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 13 Apr 2016 00:00:00 +0000</pubDate>
+        <link>https://gemoc.github.io/studio_releases/eclipse_package/updatesite/2016/04/13/v2.1.1.html</link>
+        <guid isPermaLink="true">https://gemoc.github.io/studio_releases/eclipse_package/updatesite/2016/04/13/v2.1.1.html</guid>
+        
+        
+        <category>studio_releases</category>
+        
+        <category>eclipse_package</category>
+        
+        <category>updatesite</category>
+        
+      </item>
+    
+      <item>
+        <title>GEMOC Studio V2.1.0</title>
+        <description>&lt;h1 id=&quot;gemoc-studio-210-20160316&quot;&gt;GEMOC Studio 2.1.0 (2016/03/16)&lt;/h1&gt;
+
+&lt;p&gt;This software is provided for all major OS: Windows 32 and 64 bit, Linux 32 and 64 bit and Mac OS X.&lt;/p&gt;
+
+&lt;p&gt;The GEMOC Studio contains components supporting the GEMOC methodology for building and composing executable DSMLs.&lt;/p&gt;
+
+&lt;p&gt;It includes the two workbenches:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The GEMOC Language Workbench, intended to be used by language designers: it allows building and composing new executable DSMLs.&lt;/li&gt;
+  &lt;li&gt;The GEMOC Modeling Workbench, intended to be used by domain designers: it allows creating and executing, debugging and animating models conformant to executable DSMLs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-new-and-noteworthy&quot;&gt;1. New and noteworthy&lt;/h2&gt;
+
+&lt;p&gt;The purpose of this section is to highligth some of the work done on the GEMOC Studio between this version v2.0.1 (see &lt;a href=&quot;http://gemoc.org/gemoc-studio-v2-0-1-release-notes-2/&quot;&gt;v2.0.1 release note&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;11-introduction-of-melange&quot;&gt;1.1 Introduction of Melange&lt;/h3&gt;
+
+&lt;p&gt;Melange (&lt;a href=&quot;http://melange-lang.org/&quot;&gt;http://melange-lang.org/&lt;/a&gt;) is now use as a replacement of the xdsml model in order to finely specify the language assembly.&lt;/p&gt;
+
+&lt;p&gt;Using this technology will enable future scenario when creating languages&lt;/p&gt;
+
+&lt;h3 id=&quot;12-improved-coordination&quot;&gt;1.2 Improved Coordination&lt;/h3&gt;
+
+&lt;p&gt;In the language workbench, the coordination specification now has its own project nature that simplificy the development and deployment of coordination operators (written BCOoL).&lt;/p&gt;
+
+&lt;p&gt;In the modeling workbench, a BFloW specification allow to specify how a particular system (and its models) must be coordinated. BFLoW enables a system designer to specify how a set of BCOoL operators are applied between a set of models&lt;/p&gt;
+
+&lt;h3 id=&quot;13-new-languages-available-via-the-discovery&quot;&gt;1.3 new languages available via the Discovery&lt;/h3&gt;
+
+&lt;p&gt;The GEMOC component discovery now propose several new languages and coordination operator examples.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;14-new-update-site&quot;&gt;1.4 New Update site&lt;/h3&gt;
+
+&lt;p&gt;The GEMOC component are now available via an update site that allow to install only some subset of it.&lt;/p&gt;
+
+&lt;p&gt;The last stable version is available at the following adress : &lt;a href=&quot;http://gemoc.irisa.fr/updatesite/studio/&quot;&gt;http://gemoc.irisa.fr/updatesite/studio/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Other versions (including older versions) are available at the following adress: &lt;a href=&quot;http://gemoc.irisa.fr/updatesite/&quot;&gt;http://gemoc.irisa.fr/updatesite/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This allows to install the subset of components required for sub scenario:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Model debuging: (sequential) execution, trace management and animation&lt;/p&gt;
+
+    &lt;p&gt;Xtend/Java, generative approach for trace management, generic execution engine, generic animation&lt;/p&gt;
+
+    &lt;p&gt;framework&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Concurrency modeling and analysis: (concurrent) execution, and analysis tools&lt;/p&gt;
+
+    &lt;p&gt;model debugging + MoccML, ECL/GEL, Timesquare, concurrent execution engine, analysis tools&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Behavioral coordination of, possibly heterogeneous, models: coordination engine&lt;/p&gt;
+
+    &lt;p&gt;concurrency + BCOoL, coordination execution engine&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;15-enable-generation-of-eclipse-sourcereferences-manifest-header&quot;&gt;1.5 Enable generation of Eclipse-SourceReferences MANIFEST header&lt;/h3&gt;
+
+&lt;p&gt;The GEMOC component are now bundled with &lt;a href=&quot;https://wiki.eclipse.org/PDE/UI/SourceReferences&quot;&gt;Eclipse-SourceReferences&lt;/a&gt; information. This allows to import sources of the GEMOC components directly connected to their specific version in host git repository.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-bug-fix-and-feature-request-implemented&quot;&gt;2. Bug fix and feature request implemented&lt;/h2&gt;
+
+&lt;p&gt;Many bugs and feature have been soved in this release. This include the following:&lt;/p&gt;
+
+&lt;h3 id=&quot;21-list-of-bug-fixed-in-this-release&quot;&gt;2.1 List of bug fixed in this release&lt;/h3&gt;
+
+&lt;p&gt;(ie. bug fixed since V2.0.1)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19219&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;19219&lt;/a&gt; Order of Stimuli, Engine and LogicalStep views creation not ensured leads to view crash&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19829&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;19829&lt;/a&gt; Debug stack of concurrent execution isn’t clear enough about its content&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19022&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;19022&lt;/a&gt; Bug in the Java service created when using the wizard to create the debug layer&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19867&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;19867&lt;/a&gt; right click on .ad file “Debug as” doesn’t show the action used to create the launchconfigurations&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19965&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;19965&lt;/a&gt; unclear UI distinction between run and replay that is supported by the various engine+trace when going back then forward again&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19970&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;19970&lt;/a&gt; The “Create GEMOC debug representation” representation wizard fails&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20005&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;20005&lt;/a&gt; in launch configuration, error messages in the addons aren’t clear&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20006&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;20006&lt;/a&gt; Rename Event Scheduling Timeline and Addon into MultiBranch …in all the UI&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20008&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;20008&lt;/a&gt; Sirius palette isn’t fold when running the animation&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20019&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;20019&lt;/a&gt; new Animation Project doesn’t set the plugin dependencies to framework&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20021&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;20021&lt;/a&gt; A concurrent project is created but canno’t be choiced in MW execution configuration&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20023&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;20023&lt;/a&gt; too much categories for GEMOC views&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20031&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;20031&lt;/a&gt; Crash or missing display when closing/reopening the Multidimentional timeline&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20032&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;20032&lt;/a&gt; Crash of the wizard to create the debug layer when using project name with uppercase letter&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20040&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;20040&lt;/a&gt; Create Sirius Animator project does not generate correct odesign and services&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20052&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;20052&lt;/a&gt; Melange autogeneration of plugin.xml is launched 2 times and the second one doesn’t generates the list of aspects&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20057&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;20057&lt;/a&gt; default “Ecore base package name” is not preset anymore in K3 wizard since we use melange&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20069&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;20069&lt;/a&gt; plugin gemoc.documentation is too big&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20115&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;20115&lt;/a&gt; create domain model project from melange does’nt create the same project by default&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20116&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;20116&lt;/a&gt; Create Domain project doesn’t update melange file if using right click on xdsml project&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20117&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;20117&lt;/a&gt; NPE when trying to create animation odesign&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;22-list-of-feature-request&quot;&gt;2.2 List of feature request&lt;/h3&gt;
+
+&lt;p&gt;(i.e. done since V2.0.1)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=16493&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;16493&lt;/a&gt; using gemoc process wizard should propose default names when creating projects&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19633&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;19633&lt;/a&gt; Add a check about correct compilation of ECL file&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20038&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;20038&lt;/a&gt; Create Sirius Editor project wizard should use the xdsml project name to initialize its fields&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19967&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;19967&lt;/a&gt; Concurrent debug stack should use the “Cat footprint” icon when displaying a LogicalStep&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20036&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;20036&lt;/a&gt; initial values in GEMOC melange template wizard should be derived from project name&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19686&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;19686&lt;/a&gt; Addons that have an associated view should open when the engine starts&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19718&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;19718&lt;/a&gt; Select the model element in the resource that will be the execution root /entry point&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19772&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;19772&lt;/a&gt; Show an error in the QVTo file if it is not generated correctly&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19813&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;19813&lt;/a&gt; Sirus Animator Project information not initialiszed when created from the xDSML viewpoint.&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19819&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;19819&lt;/a&gt; ClockSystem  should be packaged as external component&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19840&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;19840&lt;/a&gt; Support syntax coloring in documentation toolchain&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19965&amp;amp;group_id=4645&amp;amp;atid=13885&quot;&gt;19965&lt;/a&gt; unclear UI distinction between run and replay that is supported by the various engine+trace when going back then forward again&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19971&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;19971&lt;/a&gt; Wizard “New Kermeta 3 project” has a very narrow textfield.&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20003&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;20003&lt;/a&gt; Creating a Trace Addon project should ask the user about the project name&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20004&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;20004&lt;/a&gt; In sequential launcher, the selected model element is given via its URIFragment, it should be also presented using a more user friendly name&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20009&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;20009&lt;/a&gt; Multidimentional Timeline should present differently the incoming lines from outgoing&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20010&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;20010&lt;/a&gt; Multidimensionnal timeline global state should be larger than just one bullet,&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20012&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;20012&lt;/a&gt; Sequential Stack icons seems incoherent in some cases&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20013&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;20013&lt;/a&gt; In sequential interaction/error report when going back and modifying value need some clarification&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20014&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;20014&lt;/a&gt; improve used header space in multidimensional timeline by placing the jump button in the swt part&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20015&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;20015&lt;/a&gt; improve used header space in multidimensional timeline by using an horizotal scroll bar or move icon&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20016&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;20016&lt;/a&gt; in Melange Ctrl click on ECL should open the ecl file&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=19843&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;19843&lt;/a&gt; Add a section about deployment of language in the documentation&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20029&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;20029&lt;/a&gt; Sequential Debug Stack view should try to use the QualifiedNameProvider to improve the label in a “model oriented way”&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20033&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;20033&lt;/a&gt; Deploy Activity diagram language project and model example as a Sample deployer via amalgam&lt;/li&gt;
+  &lt;li&gt;#&lt;a href=&quot;https://gforge.inria.fr/tracker/index.php?func=detail&amp;amp;aid=20034&amp;amp;group_id=4645&amp;amp;atid=13870&quot;&gt;20034&lt;/a&gt; Deploy ArduinoModeling language projects and model example as a Sample deployer via amalgam&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 16 Mar 2016 00:00:00 +0000</pubDate>
+        <link>https://gemoc.github.io/studio_releases/eclipse_package/updatesite/2016/03/16/v2.1.0.html</link>
+        <guid isPermaLink="true">https://gemoc.github.io/studio_releases/eclipse_package/updatesite/2016/03/16/v2.1.0.html</guid>
+        
+        
+        <category>studio_releases</category>
+        
+        <category>eclipse_package</category>
+        
+        <category>updatesite</category>
+        
+      </item>
+    
+      <item>
+        <title>GEMOC Studio V2.0.1</title>
+        <description>&lt;h2 id=&quot;gemoc-studio-201-20160113&quot;&gt;GEMOC Studio 2.0.1 (2016/01/13)&lt;/h2&gt;
+
+&lt;p&gt;This software is provided for all major OS: Windows 32 and 64 bit, Linux 32 and 64 bit and Mac OS X.&lt;/p&gt;
+
+&lt;p&gt;The GEMOC Studio contains components supporting the GEMOC methodology for building and composing executable DSMLs.&lt;/p&gt;
+
+&lt;p&gt;It includes the two workbenches:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The GEMOC Language Workbench, intended to be used by language designers: it allows building and composing new executable DSMLs.&lt;/li&gt;
+  &lt;li&gt;The GEMOC Modeling Workbench, intended to be used by domain designers: it allows creating and executing, debugging and animating models conformant to executable DSMLs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-new-and-noteworthy&quot;&gt;1. New and noteworthy&lt;/h2&gt;
+
+&lt;p&gt;The purpose of this section is to highligth some of the work done on the GEMOC Studio between the v1.0 and the v2.0.&lt;/p&gt;
+
+&lt;h3 id=&quot;11-migration--refactoring&quot;&gt;1.1 Migration &amp;amp; Refactoring&lt;/h3&gt;
+
+&lt;p&gt;Since the 1.0 version, the GEMOC studio source code was migrated from the INRIA forge to a public organization on Github : &lt;a href=&quot;https://github.com/gemoc&quot;&gt;https://github.com/gemoc&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;A refactoring was done to separate the multiple existing components to address the following complementary and incremental scenarios:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Model debugging&lt;/li&gt;
+  &lt;li&gt;Concurrency modeling &amp;amp; analysis&lt;/li&gt;
+  &lt;li&gt;Behavioral coordination&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h4 id=&quot;111-model-debugging&quot;&gt;1.1.1 Model debugging&lt;/h4&gt;
+
+&lt;p&gt;Model debugging regroups the GEMOC studio components used to provide the sequential execution, the trace management capability and the animation. These components help to bring execution and simulation in domain specific tooling built with Sirius and Eclipse Modeling Framework. These components were published on the SiriusLab Github repository : &lt;a href=&quot;https://github.com/SiriusLab/&quot;&gt;https://github.com/SiriusLab/&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Generic execution engine: in this version it is possible to use a method with the @InitializeModel in order to initialize the model before its execution.&lt;/li&gt;
+  &lt;li&gt;Generic animation framework : In this new version, it is now possible to contribute the variable changes to the variable view in debug mode. There is no more need to defined by hand the mapping between the execution engine and the dynamic data, it is now automatically provided by the animation framework.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Trace management : To provide efficient and adapted execution trace management facilities, it is now possible to generated a multidimensional and domain-specific trace metamodel for the considered sequential xDSML defined using Kermeta. This option is available in the language workbench by right-clicking on the xdsml file of a sequential xDSML, and by selection “Generate Trace Addon Project”. A new Eclipse plugin is then created containing the trace metamodel as an ecore file, along with corresponding generated Java code, and with a dedicated trace manager that provides a selection of services to construct a trace, query a trace, and restore the executed model in a previous state. This generated eclipse plugin is also a GEMOC Engine Addon that can be used in the modeling workbench to capture an execution trace, and to enable Omniscient Debugging features (see dedicated section). It can be enabled as any other addon in the Run Configuration of a model.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Omniscient debugging : If a trace addon was generated for a sequential xDSML, and is made available in the modeling workbench, then Omniscient Debugging facilities are automatically enabled when a model is executed with the trace addon. These new facilities allow to explore the previous states of a model during its execution. There are two ways to use these backward facilities. First, the Multidimensional Timeline view provides an interactive representation of the execution trace being captured. When double-clicking on a previous state represented in the timeline, the model is brought back into this state. Moreover, the timeline represents all the different dimensions captured in a trace, each being the sequence of values taken by one specific element of the model. When double-cliking on a value that was reached by an element, the complete model is brought back in the state corresponding to this value. Second, the Eclipse debugging view of the GEMOC Studio possesses additional buttons in the toolbar to go backward in an execution. They provide the following actions: backInto, backOver and backOut. All these actions behave similarly to their forward counterparts, but follow execution steps in the opposite direction.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;112-concurrency-modeling-and-analysis&quot;&gt;1.1.2 Concurrency modeling and analysis&lt;/h4&gt;
+
+&lt;p&gt;The concurrency modeling and analysis features are based on the model debugging components and on other specific components :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;MoCCML: the Model of Concurrency and Communication Modeling Language is a metalanguage dedicated to the specification of constraints between some events. These constraints reflect the causal, concurrent and temporal aspect of the operational semantics of a language.&lt;/li&gt;
+  &lt;li&gt;ECL: the Event Constraint Language is a lightweight extension of OCL (Object Constraint Language) with the notion of event and with behavioral invariant. The Event are used to define the DSE and the behavioral invariants are used to constraint the partial ordering of the DSE. These constraints are defined in MoCCML.&lt;/li&gt;
+  &lt;li&gt;Gemoc Events Language (GEL): metalanguage used to specify the Communication Protocol between the MoCC and the DSA of a Concurrency-aware xDSML. The GEMOC Studio integrates a textual editor for GEL (based on Xtext), its model-level target language (microGEL) and the compiler to unfold a GEL specification for a specific model.&lt;/li&gt;
+  &lt;li&gt;Timesquare: TimeSquare is an MDK (Model Development Kit) provided as a set of Eclipse plugins that can be downloaded or installed over an existing Eclipse. TimeSquare is based on the formal Clock Constraint Specification Language (CCSL), which allows the manipulation of logical time. Logical time is a relaxed form of time where any events can be taken as a reference for counting (e.g. do something every 30 openings of the door). It can be used for &lt;a href=&quot;http://hal.inria.fr/inria-00586851&quot;&gt;specifying classical and multiform real-time requirements&lt;/a&gt; as well as formally specifying constraints on the behavior of a model (either a UML-based or a DSL model). TimeSquare can solve these constraints to conduct a simulation or to construct the state space representing all possible partial orders of the clocks (if finite).&lt;/li&gt;
+  &lt;li&gt;Concurrent execution engine: The concurrent execution engine allows to simulate conjointly heterogeneous models. More precisely, based on a coordination model (usually generated from a BCOoL specification), it starts and coordinates the execution engine of each models that are part of the coordination. It results an execution where the different model interacts to provide an emerging behavior according to the coordination.&lt;/li&gt;
+  &lt;li&gt;Analysis tool : The Clocksystem exhaustive exploration tool was contributed to the GEMOC Studio. The code generator to create the exploration file was updated. Finally, some plugins dedicated to the Clocksystem service calls were integrated to the studio.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h4 id=&quot;113-behavioral-coordination&quot;&gt;1.1.3 Behavioral coordination&lt;/h4&gt;
+
+&lt;p&gt;The last scenario supported by the GEMOC Studio is the ability to specify behavioral coordination of possibly heterogeneous models. This is done thanks to a coordination framework based on:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;BCOol : a (meta)language to capture behavioral coordination patterns between DSMLs. It is a dedicated language to system designer that eases the understanding and adaptation of coordination patterns. By instantiating a coordination pattern, models can be automatically coordinated. The generated coordination conforms to a formal language, i.e., MOCCML, thus enabling the verification and validation of the coordinated system. While the GEMOC studio supports several facilities, e.g., editing, graphical representation, animation and execution of domain-specific tools, BCOoL adds coordination facilities.&lt;/li&gt;
+  &lt;li&gt;Coordination Engine : a dedicated launcher allows to start heterogeneous models and coordinate their execution according to BCOoL patterns&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;12-gemoc-discovery-catalog&quot;&gt;1.2 GEMOC Discovery catalog&lt;/h3&gt;
+
+&lt;p&gt;In order to reduce the size of the GEMOC Studio, a new discovery catalog feature was developed. This component provides a simplified UI to allow the installation of additional components in the studio. The installable components catalog is hosted on the GEMOC github repository : &lt;a href=&quot;https://github.com/gemoc/gemoc-studio/blob/master/gemoc_studio/discovery/catalog.xmi&quot;&gt;https://github.com/gemoc/gemoc-studio/blob/master/gemoc_studio/discovery/catalog.xmi&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;The UI is accessible to the GEMOC Studio end user from the toolbar menu and shows for each component referenced in the catalog its name, a small description, a website URL, a screenshot. To install a new component the end user just need to select the component and click on the &lt;em&gt;Install&lt;/em&gt; button.&lt;/p&gt;
+
+&lt;h3 id=&quot;13-documentation-update&quot;&gt;1.3 Documentation update&lt;/h3&gt;
+
+&lt;p&gt;The documentation of the studio is available :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;on Github : &lt;a href=&quot;http://gemoc.github.io/gemoc-studio/&quot;&gt;http://gemoc.github.io/gemoc-studio/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;in the Gemoc Studio bundle : Help &amp;gt; Help Contents &amp;gt; GEMOC Studio&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The documentation contains a User Guide and the tutorials.&lt;/p&gt;
+
+&lt;h3 id=&quot;14-tutorials-update&quot;&gt;1.4 Tutorials update&lt;/h3&gt;
+
+&lt;p&gt;The tutorials were updated and are available on :&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://gemoc.github.io/gemoc-studio/publish/tutorials/html_single/TutorialMain.html&quot;&gt;http://gemoc.github.io/gemoc-studio/publish/tutorials/html_single/TutorialMain.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;The Marked Graph tutorial was reviewed to fixed some issues :&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://gemoc.github.io/gemoc-studio/publish/tutorial_markedgraph/html_single/GuideTutorialMarkedGraph.html&quot;&gt;http://gemoc.github.io/gemoc-studio/publish/tutorial_markedgraph/html_single/GuideTutorialMarkedGraph.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;and a new tutorial presenting the SigPML example was contributed :&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://gemoc.github.io/gemoc-studio/publish/tutorial_sigpml/html_single/Tutorial_SigPML.html&quot;&gt;http://gemoc.github.io/gemoc-studio/publish/tutorial_sigpml/html_single/Tutorial_SigPML.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;15-sample-update&quot;&gt;1.5 Sample update&lt;/h3&gt;
+
+&lt;p&gt;The samples integrated to the GEMOC Studio were updated.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Additionally some more advanced examples are publicly available on the organization repository &lt;a href=&quot;https://github.com/gemoc&quot;&gt;https://github.com/gemoc&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Arduino Modeling : &lt;a href=&quot;https://github.com/gemoc/arduinomodeling&quot;&gt;https://github.com/gemoc/arduinomodeling&lt;/a&gt; : a sequential language that simulates Arduino components&lt;/li&gt;
+  &lt;li&gt;DSL for Activity Diagram : &lt;a href=&quot;https://github.com/gemoc/activitydiagram&quot;&gt;https://github.com/gemoc/activitydiagram&lt;/a&gt; : several implementations of the Activity Diagram from FUML. (it features both concurrent and sequential versions)&lt;/li&gt;
+  &lt;li&gt;Farming Modeling : &lt;a href=&quot;https://github.com/gemoc/farmingmodeling&quot;&gt;https://github.com/gemoc/farmingmodeling&lt;/a&gt; : a DSL that simulates a farm. It uses a sequential engine.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h2 id=&quot;2-package-description&quot;&gt;2. Package description&lt;/h2&gt;
+
+&lt;p&gt;The GEMOC Studio contains components supporting the GEMOC methodology for building and composing executable DSMLs.&lt;/p&gt;
+
+&lt;p&gt;It includes the two workbenches:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The GEMOC Language Workbench, intended to be used by language designers: it allows building and composing new executable DSMLs.&lt;/li&gt;
+  &lt;li&gt;The GEMOC Modeling Workbench, intended to be used by domain designers: it allows creating and executing, debugging and animating models conformant to executable DSMLs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;21-this-package-includes&quot;&gt;2.1 This package includes&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Timesquare&lt;/li&gt;
+  &lt;li&gt;AspectJ Development Tools&lt;/li&gt;
+  &lt;li&gt;Groovy-Eclipse plugin&lt;/li&gt;
+  &lt;li&gt;Acceleo&lt;/li&gt;
+  &lt;li&gt;Git Team Provider&lt;/li&gt;
+  &lt;li&gt;EMF – Eclipse Modeling Framework Runtime and Tools&lt;/li&gt;
+  &lt;li&gt;EMF Compare Core&lt;/li&gt;
+  &lt;li&gt;EMF Model Transaction Core&lt;/li&gt;
+  &lt;li&gt;Marketplace Client&lt;/li&gt;
+  &lt;li&gt;GEF (MVC)&lt;/li&gt;
+  &lt;li&gt;GEMOC concurrent CCSL Engine&lt;/li&gt;
+  &lt;li&gt;GEMOC Sequential Java Engine&lt;/li&gt;
+  &lt;li&gt;K3&lt;/li&gt;
+  &lt;li&gt;Melange&lt;/li&gt;
+  &lt;li&gt;BCOoL&lt;/li&gt;
+  &lt;li&gt;Graphical Modeling Framework&lt;/li&gt;
+  &lt;li&gt;Eclipse Java Development Tools&lt;/li&gt;
+  &lt;li&gt;Maven Integration for Eclipse&lt;/li&gt;
+  &lt;li&gt;QVT Operational Compiler and Interpreter&lt;/li&gt;
+  &lt;li&gt;OCL for Ecore&lt;/li&gt;
+  &lt;li&gt;OCL for UML&lt;/li&gt;
+  &lt;li&gt;PDE&lt;/li&gt;
+  &lt;li&gt;Sirius Core Runtime&lt;/li&gt;
+  &lt;li&gt;Sirius Viewpoints Specification Editor&lt;/li&gt;
+  &lt;li&gt;Subversive SVN Team Provider&lt;/li&gt;
+  &lt;li&gt;UML2&lt;/li&gt;
+  &lt;li&gt;Xtend IDE&lt;/li&gt;
+  &lt;li&gt;Xtext&lt;/li&gt;
+  &lt;li&gt;Timesquare&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;22-detailed-features-list&quot;&gt;2.2 Detailed features list&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;org.gemoc.bcool.feature.feature&lt;/li&gt;
+  &lt;li&gt;fr.inria.aoste.timesquare.ccslkernel.clocktree.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.gemoc.concurrency.exploration.common.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.gemoc.concurrent_addons.feature.feature&lt;/li&gt;
+  &lt;li&gt;fr.inria.diverse.trace.feature.feature&lt;/li&gt;
+  &lt;li&gt;fr.obeo.dsl.debug.feature.feature&lt;/li&gt;
+  &lt;li&gt;fr.obeo.dsl.debug.sirius.ui.feature.feature&lt;/li&gt;
+  &lt;li&gt;fr.obeo.dsl.debug.ui.feature.feature&lt;/li&gt;
+  &lt;li&gt;fr.inria.aoste.timesquare.ecl.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.eclipse.e4.rcp.feature&lt;/li&gt;
+  &lt;li&gt;org.eclipse.emf.ecoretools.sdk.feature&lt;/li&gt;
+  &lt;li&gt;org.gemoc.executionengine.ccsljava.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.gemoc.executionengine.ccsljava.runtime.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.gemoc.executionengine.ccsljava.runtime.ui.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.gemoc.executionengine.java.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.gemoc.executionframework.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.gemoc.executionframework.executioncontext.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.gemoc.gel.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.gemoc.gel.microgel.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.gemoc.gemoc_commons.feature.feature&lt;/li&gt;
+  &lt;li&gt;fr.inria.diverse.trace.gemoc.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.gemoc.commons.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.gemoc.heterogeneous_coordination_engine.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.gemoc.mocc.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.gemoc.official_samples.deployers.feature.feature&lt;/li&gt;
+  &lt;li&gt;fr.inria.diverse.k3.feature.feature&lt;/li&gt;
+  &lt;li&gt;fr.inria.diverse.melange.sdk.feature&lt;/li&gt;
+  &lt;li&gt;fr.inria.aoste.timesquare.backend.obeoviewpointanimator.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.eclipse.ocl.all.sdk.feature&lt;/li&gt;
+  &lt;li&gt;org.eclipse.sirius.runtime.feature&lt;/li&gt;
+  &lt;li&gt;org.eclipse.sirius.doc.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.eclipse.sirius.runtime.ide.ui.acceleo.feature&lt;/li&gt;
+  &lt;li&gt;org.eclipse.sirius.runtime.ide.eef.feature&lt;/li&gt;
+  &lt;li&gt;org.eclipse.sirius.runtime.ide.xtext.feature&lt;/li&gt;
+  &lt;li&gt;org.eclipse.sirius.runtime.ide.ui.feature&lt;/li&gt;
+  &lt;li&gt;org.eclipse.sirius.runtime.acceleo.feature&lt;/li&gt;
+  &lt;li&gt;org.eclipse.sirius.runtime.ocl.feature&lt;/li&gt;
+  &lt;li&gt;org.eclipse.sirius.specifier.ide.ui.acceleo.feature&lt;/li&gt;
+  &lt;li&gt;org.eclipse.sirius.specifier.ide.ui.feature&lt;/li&gt;
+  &lt;li&gt;fr.inria.aoste.timesquare.backend.codeexecution.feature.feature&lt;/li&gt;
+  &lt;li&gt;fr.inria.aoste.timesquare.core.feature.feature&lt;/li&gt;
+  &lt;li&gt;fr.inria.aoste.timesquare.launcher.ui.feature.feature&lt;/li&gt;
+  &lt;li&gt;fr.inria.aoste.timesquare.backend.power.feature.feature&lt;/li&gt;
+  &lt;li&gt;fr.inria.aoste.timesquare.backend.vcd.feature.feature&lt;/li&gt;
+  &lt;li&gt;fr.inria.aoste.timesquare.nobackend.feature.feature&lt;/li&gt;
+  &lt;li&gt;org.eclipse.xtend.sdk.feature&lt;/li&gt;
+  &lt;li&gt;org.eclipse.xtext.sdk.feature&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 13 Jan 2016 00:00:00 +0000</pubDate>
+        <link>https://gemoc.github.io/studio_releases/eclipse_package/2016/01/13/v2.0.1.html</link>
+        <guid isPermaLink="true">https://gemoc.github.io/studio_releases/eclipse_package/2016/01/13/v2.0.1.html</guid>
+        
+        
+        <category>studio_releases</category>
+        
+        <category>eclipse_package</category>
+        
+      </item>
+    
+      <item>
+        <title>GEMOC Studio V1.0.0</title>
+        <description>&lt;h2 id=&quot;1-gemoc-studio-overview&quot;&gt;1. GEMOC Studio Overview&lt;/h2&gt;
+
+&lt;p&gt;The GEMOC Studio is an Eclipse package that contains components supporting the GEMOC methodology for building and composing executable DSMLs.&lt;/p&gt;
+
+&lt;p&gt;It includes the two workbenches:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The GEMOC Language Workbench, intended to be used by language designers: it allows building and composing new executable DSMLs.&lt;/li&gt;
+  &lt;li&gt;The GEMOC Modeling Workbench, intended to be used by domain designers: it allows creating and executing models conformant to executable DSMLs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Each workbench is delivered with some basic illustrating examples that can be installed from Eclipse (File&amp;gt;New&amp;gt;Example…)&lt;/p&gt;
+
+&lt;h2 id=&quot;2-features&quot;&gt;2. Features&lt;/h2&gt;
+
+&lt;p&gt;This section describes all the features available in the studio. Those features fall into three categories:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;GEMOC Workbench features: the two main workbench features provide integration support for the methodology.&lt;/li&gt;
+  &lt;li&gt;GEMOC main features : the set of components used by the GEMOC methodology (defining a new language or using a workbench language)&lt;/li&gt;
+  &lt;li&gt;Additional features: other components that are integrated to the studio to ease the development of modelling frameworks.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For sake of simplification, features that are technically deployed as several Eclipse features are grouped for presentation.&lt;/p&gt;
+
+&lt;h3 id=&quot;21-gemoc-workbench-features&quot;&gt;2.1 GEMOC Workbench Features&lt;/h3&gt;
+
+&lt;p&gt;This section presents the two main features of the Studio. These features plays a specific role in the studio, they organize the use of the other provided components.&lt;/p&gt;
+
+&lt;h4 id=&quot;211-gemoc-language-workbench&quot;&gt;2.1.1 GEMOC Language Workbench&lt;/h4&gt;
+
+&lt;p&gt;The language workbench provides means to create new executable languages.&lt;/p&gt;
+
+&lt;p&gt;It gathers services from other features to provide the language definition tools&lt;/p&gt;
+
+&lt;p&gt;This component is developed in the context of the GEMOC ANR project.&lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://gemoc.github.io/gemoc-studio/&quot;&gt;http://gemoc.github.io/gemoc-studio/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: &lt;a href=&quot;http://gemoc.github.io/gemoc-studio/en-US/html/ch01.html&quot;&gt;http://gemoc.github.io/gemoc-studio/en-US/html/ch01.html&lt;/a&gt; / partly documented in D1.3.1 and D4.1.1&lt;/p&gt;
+
+&lt;p&gt;Source code: Available on the gemoc-dev git repository : gemoc-dev/org/gemoc/gemoc_language_workbench/&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h4 id=&quot;212-gemoc-modeling-workbench&quot;&gt;2.1.2 GEMOC Modeling Workbench&lt;/h4&gt;
+
+&lt;p&gt;The Modeling Workbench provides the means to use and run languages (as defined in the language workbench aforementioned) in an integrated way. It gathers services from other features to provide to the user:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Model edition&lt;/li&gt;
+  &lt;li&gt;GEMOC Execution Engine&lt;/li&gt;
+  &lt;li&gt;GEMOC Animation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This component is developed in the context of the GEMOC ANR project.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://gemoc.github.io/gemoc-studio/&quot;&gt;http://gemoc.github.io/gemoc-studio/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: &lt;a href=&quot;http://gemoc.github.io/gemoc-studio/en-US/html/ch02.html/&quot;&gt;http://gemoc.github.io/gemoc-studio/en-US/html/ch02.html/&lt;/a&gt; partly documented in D1.3.1 and D4.1.1&lt;/p&gt;
+
+&lt;p&gt;Source code: Available on the gemoc-dev git repository: gemoc-dev/org/gemoc/gemoc_modeling_workbench/&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;22-gemoc-main-features&quot;&gt;2.2 GEMOC Main Features&lt;/h3&gt;
+
+&lt;p&gt;This section lists the features that are explicitly used by the current GEMOC methodology in the two workbenches.&lt;/p&gt;
+
+&lt;h4 id=&quot;221-ecore-tools&quot;&gt;2.2.1 Ecore Tools&lt;/h4&gt;
+
+&lt;p&gt;EcoreTools provides a complete and state of the art graphical modeler to create, edit and analyze Ecore models. The new ecore tools editors are based on Sirius.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://www.eclipse.org/ecoretools/&quot;&gt;http://www.eclipse.org/ecoretools/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation : &lt;a href=&quot;http://www.eclipse.org/ecoretools/doc/&quot;&gt;http://www.eclipse.org/ecoretools/doc/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h4 id=&quot;222-ocl&quot;&gt;2.2.2 OCL&lt;/h4&gt;
+
+&lt;p&gt;The Eclipse OCL Project provides an implementation of the Object Constraint Language (OCL) OMG standard for EMF-based models. In GEMOC methodology, OCL is used to add constraints on AS models.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://www.eclipse.org/modeling/mdt/?project=ocl&quot;&gt;http://www.eclipse.org/modeling/mdt/?project=ocl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: &lt;a href=&quot;https://wiki.eclipse.org/OCL&quot;&gt;https://wiki.eclipse.org/OCL&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;223-xtend&quot;&gt;2.2.3 XTend&lt;/h4&gt;
+
+&lt;p&gt;Xtend is a statically-typed programming language which translates to comprehensible Java source code. It allows to use advanced language constructs with a seamless integration in the Java programming language.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;https://www.eclipse.org/xtend&quot;&gt;https://www.eclipse.org/xtend&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: &lt;a href=&quot;https://www.eclipse.org/xtend/documentation.html&quot;&gt;https://www.eclipse.org/xtend/documentation.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;224-kermeta-3&quot;&gt;2.2.4 Kermeta 3&lt;/h4&gt;
+
+&lt;p&gt;Kermeta 3 is a metaprogramming environment based on an object-oriented DSL optimized for metamodel engineering. It works as an extension of the xTend language to provide aspect oriented and model typing facilities. It is used to define the Domain Specific Action (DSA) in the GEMOC process.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;https://github.com/diverse-project/k3/wiki&quot;&gt;https://github.com/diverse-project/k3/wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: partly documented in D1.1.1 and in the tutorial &lt;a href=&quot;http://gemoc.github.io/gemoc-studio/en-US/html/ch03.html&quot;&gt;http://gemoc.github.io/gemoc-studio/en-US/html/ch03.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;225-melange&quot;&gt;2.2.5 Melange&lt;/h4&gt;
+
+&lt;p&gt;Melange is a language and platform for assembling and integrating multiple domain-specific languages. It is used to automate the creation of the different ecore required in the GEMOC process.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://melange-lang.org/&quot;&gt;http://melange-lang.org/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: partly documented in D1.1.1 and in the tutorial &lt;a href=&quot;http://gemoc.github.io/gemoc-studio/en-US/html/ch03.html&quot;&gt;http://gemoc.github.io/gemoc-studio/en-US/html/ch03.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h4 id=&quot;226-timesquare&quot;&gt;2.2.6 TimeSquare&lt;/h4&gt;
+
+&lt;p&gt;TimeSquare is an MDK (Model Development Kit) provided as a set of Eclipse plugins that can be downloaded or installed over an existing Eclipse. TimeSquare provides an engine, a solver and editors for CCSL specifications (Clock Constraint Specification Language).&lt;/p&gt;
+
+&lt;p&gt;CCSL specifications are used to define MoCC.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://timesquare.inria.fr/&quot;&gt;http://timesquare.inria.fr/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: Not yet available&lt;/p&gt;
+
+&lt;h4 id=&quot;227-ecl&quot;&gt;2.2.7 ECL&lt;/h4&gt;
+
+&lt;p&gt;ECL is an Event Constraint Language which allows the manipulation of logical time. An ECL model defines the link between the couple AS/DSA and the MoCC.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://timesquare.inria.fr/&quot;&gt;http://timesquare.inria.fr/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: Not yet available&lt;/p&gt;
+
+&lt;h4 id=&quot;228-moccml&quot;&gt;2.2.8 MoCCML&lt;/h4&gt;
+
+&lt;p&gt;MoCML is modeling language for defining MoCC. The component comes with a textual and a graphical editor.&lt;/p&gt;
+
+&lt;p&gt;This component is developed in the context of the GEMOC ANR project.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: Not yet available&lt;/p&gt;
+
+&lt;p&gt;Documentation: in &lt;a href=&quot;http://gemoc.github.io/gemoc-studio/en-US/html/ch01s07.html&quot;&gt;http://gemoc.github.io/gemoc-studio/en-US/html/ch01s07.html&lt;/a&gt; and in the tutorial &lt;a href=&quot;http://gemoc.github.io/gemoc-studio/en-US/html/ch03.html&quot;&gt;http://gemoc.github.io/gemoc-studio/en-US/html/ch03.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Source code: Available on the gemoc-dev git repository: gemoc-dev/org/gemoc/MoCC/&lt;/p&gt;
+
+&lt;h4 id=&quot;229-xtext&quot;&gt;2.2.9 XText&lt;/h4&gt;
+
+&lt;p&gt;Xtext offers to create textual syntaxes and associated editor on top of gr           ammars and/or metamodels.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://www.eclipse.org/Xtext/&quot;&gt;http://www.eclipse.org/Xtext/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: &lt;a href=&quot;http://www.eclipse.org/Xtext/documentation.html&quot;&gt;http://www.eclipse.org/Xtext/documentation.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2210-sirius&quot;&gt;2.2.10 Sirius&lt;/h4&gt;
+
+&lt;p&gt;Sirius is an Eclipse project which allows to easily creating graphical modelling workbenches easily by leveraging the Eclipse Modeling technologies, It is built on top of EMF and GMF.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://eclipse.org/sirius/&quot;&gt;http://eclipse.org/sirius/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: &lt;a href=&quot;http://www.eclipse.org/sirius/doc/&quot;&gt;http://www.eclipse.org/sirius/doc/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2211-gemoc-execution-engine&quot;&gt;2.2.11 GEMOC Execution Engine&lt;/h4&gt;
+
+&lt;p&gt;This feature allows to run any model according to its xDSML definition. It uses the solver to compute the steps of the simulation. The interface provides launcher facilities to run a new simulation. This component is developed in the context of the GEMOC ANR project.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: Not yet available&lt;/p&gt;
+
+&lt;p&gt;Documentation: Deliverable notes D4.2.1&lt;/p&gt;
+
+&lt;p&gt;Source code: Available on the gemoc-dev git repository: gemoc-dev/org/gemoc/execution/engine&lt;/p&gt;
+
+&lt;h4 id=&quot;2212-gemoc-debug-and-animation&quot;&gt;2.2.12 GEMOC Debug and Animation&lt;/h4&gt;
+
+&lt;p&gt;This feature provides animation of graphical models according to a running execution. It allows define specific animation views or animate existing ones. It is integrated to the Eclipse Debugger UI, and it highlights running model components on graphical views and editors. It is based on Sirius. This component is developed in the context of the GEMOC ANR project.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: Not yet available&lt;/p&gt;
+
+&lt;p&gt;Documentation: covered in the online documentation &lt;a href=&quot;http://gemoc.github.io/gemoc-studio/en-US/html/ch01s10.html&quot;&gt;http://gemoc.github.io/gemoc-studio/en-US/html/ch01s10.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Source code: Available on the gemoc-dev git repository: gemoc-dev/fr/obeo/dsl/sirius/animation&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;23-additional-features&quot;&gt;2.3 Additional Features&lt;/h3&gt;
+
+&lt;p&gt;This section lists the features that have been added to the studio in order to ease the development or that are used internally by the main features.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h4 id=&quot;231-acceleo&quot;&gt;2.3.1 Acceleo&lt;/h4&gt;
+
+&lt;p&gt;Acceleo is a pragmatic implementation of the Object Management Group (OMG) MOF Model to Text Language (MTL) standard.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://www.eclipse.org/acceleo/&quot;&gt;http://www.eclipse.org/acceleo/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: &lt;a href=&quot;http://www.eclipse.org/acceleo/support/&quot;&gt;http://www.eclipse.org/acceleo/support/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;232-atl&quot;&gt;2.3.2 ATL&lt;/h4&gt;
+
+&lt;p&gt;ATL (ATL Transformation Language) is a model transformation language and toolkit. In the field of Model-Driven Engineering (MDE), ATL provides ways to produce a set of target models from a set of source models.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website : &lt;a href=&quot;https://www.eclipse.org/atl/&quot;&gt;https://www.eclipse.org/atl/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation : &lt;a href=&quot;https://www.eclipse.org/atl/documentation/&quot;&gt;https://www.eclipse.org/atl/documentation/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;233-qvto&quot;&gt;2.3.3 QVTo&lt;/h4&gt;
+
+&lt;p&gt;QVT Operational component is a partial implementation of the Operational Mappings Language defined by the OMG standard specification (MOF) 2.0 Query/View/Transformation. In long term, it aims to provide a complete implementation of the operational part of the standard.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://www.eclipse.org/mmt/?project=qvto&quot;&gt;http://www.eclipse.org/mmt/?project=qvto&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: &lt;a href=&quot;https://wiki.eclipse.org/QVTo&quot;&gt;https://wiki.eclipse.org/QVTo&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;234-eef&quot;&gt;2.3.4 EEF&lt;/h4&gt;
+
+&lt;p&gt;The Extended Editing Framework aims at enhancing EMF model creation phase by providing services dedicated to advanced model editing.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://www.eclipse.org/modeling/emft/?project=eef&quot;&gt;http://www.eclipse.org/modeling/emft/?project=eef&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: &lt;a href=&quot;https://wiki.eclipse.org/EEF&quot;&gt;https://wiki.eclipse.org/EEF&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;235-uml-designer&quot;&gt;2.3.5 UML Designer&lt;/h4&gt;
+
+&lt;p&gt;UML Designer is a graphical tool to edit and visualize UML 2 models.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://marketplace.obeonetwork.com/module/uml&quot;&gt;http://marketplace.obeonetwork.com/module/uml&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: &lt;a href=&quot;http://www.obeonetwork.com/group/uml-designer/page/reference-documentation&quot;&gt;http://www.obeonetwork.com/group/uml-designer/page/reference-documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;236-emf-compare&quot;&gt;2.3.6 EMF Compare&lt;/h4&gt;
+
+&lt;p&gt;EMF Compare provides comparison and merge facility for any kind of EMF Model.&lt;/p&gt;
+
+&lt;p&gt;In a nutshell this project provides:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;a framework you can easily reuse and extend to compare instances of your models&lt;/li&gt;
+  &lt;li&gt;a tool integrated in the Eclipse IDE to see the differences and merge them.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It includes a generic comparison engine and the ability to export differences in a model patch. It is integrated with the Eclipse Team API, meaning that it enables collaborative work on models using CVS, SVN and GIT.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://www.eclipse.org/emf/compare/&quot;&gt;http://www.eclipse.org/emf/compare/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: &lt;a href=&quot;http://www.eclipse.org/emf/compare/documentation/latest/&quot;&gt;http://www.eclipse.org/emf/compare/documentation/latest/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;237-tesl&quot;&gt;2.3.7 TESL&lt;/h4&gt;
+
+&lt;p&gt;TESL is a tagged event solver used by Modhel’X. It comes with a language dedicated to clock constraints specification. It is studied in GEMOC as a possible solver.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://wwwdi.supelec.fr/software/ModHelX/&quot;&gt;http://wwwdi.supelec.fr/software/ModHelX/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: Not yet available&lt;/p&gt;
+
+&lt;h4 id=&quot;238-modhelx&quot;&gt;2.3.8 Modhel’X&lt;/h4&gt;
+
+&lt;p&gt;Modhel’X is an heterogeneous execution engine based on TESL. This engine is distributed with a few models of computation.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://wwwdi.supelec.fr/software/ModHelX/&quot;&gt;http://wwwdi.supelec.fr/software/ModHelX/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: Not yet available&lt;/p&gt;
+
+&lt;h4 id=&quot;239-groovy&quot;&gt;2.3.9 Groovy&lt;/h4&gt;
+
+&lt;p&gt;Groovy is an agile and dynamic language for the Java Virtual Machine.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;http://groovy.codehaus.org/&quot;&gt;http://groovy.codehaus.org/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: &lt;a href=&quot;http://groovy.codehaus.org/Documentation&quot;&gt;http://groovy.codehaus.org/Documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2310-m2e&quot;&gt;2.3.10 m2e&lt;/h4&gt;
+
+&lt;p&gt;The goal of the m2e project is to provide a first-class Apache Maven support in the Eclipse IDE, making it easier to edit Maven’s pom.xml, run a build from the IDE and much more. For Java developers, the very tight integration with JDT greatly simplifies the consumption of Java artifacts either being hosted on open source repositories such as Maven Central, or in your in-house Maven repository.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;https://www.eclipse.org/m2e/&quot;&gt;https://www.eclipse.org/m2e/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation : &lt;a href=&quot;https://www.eclipse.org/m2e/documentation/&quot;&gt;https://www.eclipse.org/m2e/documentation/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2311-mylyn&quot;&gt;2.3.11 Mylyn&lt;/h4&gt;
+
+&lt;p&gt;Mylyn is the task and application lifecycle management (ALM) framework for Eclipse. It provides:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A task-focused interface : Realigns the IDE around tasks so that you see only the code that’s relevant&lt;/li&gt;
+  &lt;li&gt;A task management tool for developers&lt;/li&gt;
+  &lt;li&gt;A broad ecosystem of Agile and ALM integrations : Dozens of extensions integrate Mylyn with ALM and developer collaboration tools&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;https://www.eclipse.org/mylyn/&quot;&gt;https://www.eclipse.org/mylyn/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: &lt;a href=&quot;https://www.eclipse.org/mylyn/start/&quot;&gt;https://www.eclipse.org/mylyn/start/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2312-egitjgit&quot;&gt;2.3.12 EGit/JGit&lt;/h4&gt;
+
+&lt;p&gt;EGit is an Eclipse Team provider for the Git version control system. Git is a distributed SCM (Source Control Management) which means every developer has a full copy of all history of every revision of the code, making queries against the history very fast and versatile.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;https://www.eclipse.org/egit/&quot;&gt;https://www.eclipse.org/egit/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: &lt;a href=&quot;https://www.eclipse.org/egit/documentation/&quot;&gt;https://www.eclipse.org/egit/documentation/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2313-subversive-svn&quot;&gt;2.3.13 Subversive SVN&lt;/h4&gt;
+
+&lt;p&gt;The Subversive project is aimed to integrate the Subversion (SVN) version control system with the Eclipse platform.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Website: &lt;a href=&quot;https://www.eclipse.org/subversive/&quot;&gt;https://www.eclipse.org/subversive/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation: &lt;a href=&quot;https://www.eclipse.org/subversive/documentation.php&quot;&gt;https://www.eclipse.org/subversive/documentation.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+</description>
+        <pubDate>Wed, 03 Jun 2015 00:00:00 +0000</pubDate>
+        <link>https://gemoc.github.io/studio_releases/eclipse_package/2015/06/03/v1.0.0.html</link>
+        <guid isPermaLink="true">https://gemoc.github.io/studio_releases/eclipse_package/2015/06/03/v1.0.0.html</guid>
+        
+        
+        <category>studio_releases</category>
+        
+        <category>eclipse_package</category>
+        
+      </item>
+    
+      <item>
+        <title>Fifth Posting to This Blog</title>
+        <description>&lt;!-- start slipsum code --&gt;
+
+&lt;p&gt;Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I’m in a transitional period so I don’t wanna kill you, I wanna help you. But I can’t give you this case, it don’t belong to me. Besides, I’ve already been through too much shit this morning over this case to hand it over to your dumb ass.&lt;/p&gt;
+
+&lt;p&gt;You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don’t know exactly when we turned on each other, but I know that seven of us survived the slide… and only five made it out. Now we took an oath, that I’m breaking now. We said we’d say it was the snow that killed the other two, but it wasn’t. Nature is lethal but it doesn’t hold a candle to man.&lt;/p&gt;
+
+&lt;p&gt;Look, just because I don’t be givin’ no man a foot massage don’t make it right for Marsellus to throw Antwone into a glass motherfuckin’ house, fuckin’ up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, ‘cause I’ll kill the motherfucker, know what I’m sayin’?&lt;/p&gt;
+
+&lt;!-- please do not remove this line --&gt;
+
+&lt;div style=&quot;display:none;&quot;&gt;
+&lt;a href=&quot;http://slipsum.com&quot;&gt;lorem ipsum&lt;/a&gt;&lt;/div&gt;
+
+&lt;!-- end slipsum code --&gt;
+</description>
+        <pubDate>Thu, 05 Mar 2015 00:00:00 +0000</pubDate>
+        <link>https://gemoc.github.io/2015/03/05/blog-post-five.html</link>
+        <guid isPermaLink="true">https://gemoc.github.io/2015/03/05/blog-post-five.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Blog Post Number Four</title>
+        <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
+        <link>https://gemoc.github.io/2015/03/04/blog-post-four.html</link>
+        <guid isPermaLink="true">https://gemoc.github.io/2015/03/04/blog-post-four.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Third Blog Post</title>
+        <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+
+&lt;p&gt;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?&lt;/p&gt;
+
+&lt;p&gt;At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 03 Mar 2015 00:00:00 +0000</pubDate>
+        <link>https://gemoc.github.io/2015/03/03/blog-post-three.html</link>
+        <guid isPermaLink="true">https://gemoc.github.io/2015/03/03/blog-post-three.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Blog Post Part Deux</title>
+        <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+
+&lt;p&gt;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 02 Mar 2015 00:00:00 +0000</pubDate>
+        <link>https://gemoc.github.io/2015/03/02/blog-post-two.html</link>
+        <guid isPermaLink="true">https://gemoc.github.io/2015/03/02/blog-post-two.html</guid>
+        
+        
+      </item>
+    
   </channel>
 </rss>
